@@ -23,6 +23,6 @@ public class ReceiveNotificationProducer {
 
   private void sendToTopic(String topic, ReceiveNotificationEvent event) {
     kafkaTemplate.send(topic, event);
-    log.info("<< {} sent | transactionId={}", topic, event.getTransactionId());
+    log.info(">> {} sent | transactionId={}", topic, event.getTransactionId());
   }
 }

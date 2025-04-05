@@ -5,7 +5,6 @@ import static com.sleepkqq.sololeveling.avro.constants.KafkaGroupIds.NOTIFICATIO
 import com.sleepkqq.sololeveling.avro.config.DefaultKafkaConfig;
 import com.sleepkqq.sololeveling.avro.notification.ReceiveNotificationEvent;
 import com.sleepkqq.sololeveling.avro.notification.SendNotificationEvent;
-import com.sleepkqq.sololeveling.avro.task.GenerateTasksEvent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +14,9 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-@Configuration
 @EnableKafka
+@Configuration
+@SuppressWarnings("unused")
 public class KafkaConfig extends DefaultKafkaConfig {
 
   public KafkaConfig(
