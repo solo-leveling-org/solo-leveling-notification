@@ -4,7 +4,7 @@ import static com.sleepkqq.sololeveling.avro.constants.KafkaTaskTopics.TG_NOTIFI
 import static com.sleepkqq.sololeveling.avro.constants.KafkaTaskTopics.UI_NOTIFICATION_TOPIC;
 
 import com.sleepkqq.sololeveling.avro.notification.NotificationPriority;
-import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
 public class PriorityBasedRoutingStrategy implements NotificationRoutingStrategy {
 
   @Override
-  public List<String> getTopics(NotificationPriority priority) {
+  public Set<String> getTopics(NotificationPriority priority) {
     return switch (priority) {
-      case LOW -> List.of(UI_NOTIFICATION_TOPIC);
-      case MEDIUM, HIGH -> List.of(UI_NOTIFICATION_TOPIC, TG_NOTIFICATION_TOPIC);
+      case LOW -> Set.of(UI_NOTIFICATION_TOPIC);
+      case MEDIUM, HIGH -> Set.of(UI_NOTIFICATION_TOPIC, TG_NOTIFICATION_TOPIC);
     };
   }
 }

@@ -20,11 +20,11 @@ public class SendNotificationConsumer {
   @KafkaListener(topics = SEND_NOTIFICATION_TOPIC, groupId = NOTIFICATION_GROUP_ID)
   public void listen(SendNotificationEvent event) {
     log.info("<< Start sending notification | transactionId={}", event.getTransactionId());
-    var receiveNotificationEvent = ReceiveNotificationEvent.newBuilder()
-        .setTransactionId(event.getTransactionId())
-        .setUserId(event.getUserId())
-        .setNotification(event.getNotification())
-        .build();
+    var receiveNotificationEvent = new ReceiveNotificationEvent(
+        event.getTransactionId(),
+        event.getUserId(),
+        event.getNotification()
+    );
     receiveNotificationProducer.send(event.getPriority(), receiveNotificationEvent);
   }
 }

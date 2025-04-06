@@ -1,9 +1,9 @@
 package com.sleepkqq.sololeveling.notification.routing;
 
 import com.sleepkqq.sololeveling.avro.notification.NotificationPriority;
-import java.util.List;
+import java.util.Set;
 
 public interface NotificationRoutingStrategy {
 
-  List<String> getTopics(NotificationPriority priority);
+  Set<String> getTopics(NotificationPriority priority);
 }
