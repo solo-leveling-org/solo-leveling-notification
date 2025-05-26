@@ -39,7 +39,7 @@ public class KafkaConfig extends DefaultKafkaConfig {
   }
 
   @Bean
-  public ConsumerFactory<String, SendNotificationEvent> consumerFactoryGenerateTasksEvent() {
+  public ConsumerFactory<String, SendNotificationEvent> consumerFactorySendNotificationEvent() {
     return createConsumerFactory(NOTIFICATION_GROUP_ID);
   }
 
