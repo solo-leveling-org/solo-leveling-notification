@@ -1,0 +1,31 @@
+package com.sleepkqq.sololeveling.notification.kafka
+
+import com.sleepkqq.sololeveling.avro.constants.KafkaGroupIds
+import com.sleepkqq.sololeveling.avro.constants.KafkaTaskTopics
+import com.sleepkqq.sololeveling.avro.notification.ReceiveNotificationEvent
+import com.sleepkqq.sololeveling.avro.notification.SendNotificationEvent
+import org.slf4j.LoggerFactory
+import org.springframework.kafka.annotation.KafkaListener
+import org.springframework.stereotype.Service
+
+@Service
+class SendNotificationConsumer(
+	private val receiveNotificationProducer: ReceiveNotificationProducer
+) {
+
+	private val log = LoggerFactory.getLogger(SendNotificationConsumer::class.java)
+
+	@KafkaListener(
+		topics = [KafkaTaskTopics.SEND_NOTIFICATION_TOPIC],
+		groupId = KafkaGroupIds.NOTIFICATION_GROUP_ID
+	)
+	fun listen(event: SendNotificationEvent) {
+		log.info("<< Start sending notification | transactionId={}", event.transactionId)
+		val receiveNotificationEvent = ReceiveNotificationEvent(
+			event.transactionId,
+			event.userId,
+			event.notification
+		)
+		receiveNotificationProducer.send(event.priority, receiveNotificationEvent)
+	}
+}
