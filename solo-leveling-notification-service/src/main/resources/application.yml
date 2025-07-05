@@ -5,3 +5,9 @@ spring:
     bootstrap-servers: ${SERVER_HOST}:9092
     properties:
       schema.registry.url: http://${SERVER_HOST}:8081
+logging:
+  level:
+    org.apache.kafka.clients.consumer.ConsumerConfig: WARN
+    org.apache.kafka.clients.producer.ProducerConfig: WARN
+    io.confluent.kafka.serializers.KafkaAvroDeserializerConfig: WARN
+    io.confluent.kafka.serializers.KafkaAvroSerializerConfig: WARN
