@@ -37,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t solo-leveling-ai .
+        run: docker build -t solo-leveling-notification .
 
       - name: Clean up settings.xml (for security)
         run: rm -f ./settings.xml
