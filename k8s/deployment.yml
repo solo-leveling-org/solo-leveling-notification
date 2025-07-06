@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: solo-leveling-notification
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: solo-leveling-notification
+  template:
+    metadata:
+      labels:
+        app: solo-leveling-notification
+      annotations:
+        commit.sha: "${GIT_COMMIT_SHA}"
+    spec:
+      containers:
+        - name: app
+          image: $DOCKERHUB_USER/solo-leveling-notification:$GIT_COMMIT_SHA
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SERVER_HOST
+              value: "${SERVER_HOST}"
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
