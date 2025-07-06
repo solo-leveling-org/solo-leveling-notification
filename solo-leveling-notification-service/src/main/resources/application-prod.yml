@@ -4,4 +4,4 @@ spring:
     properties:
       schema.registry.url: http://${SERVER_HOST}:8081
 server:
-  host: 8080
+  port: 8080
