@@ -33,4 +33,4 @@ WORKDIR /app
 EXPOSE 8080
 
 # Запускаем приложение
-CMD ["java", "-jar", "solo-leveling-ai.jar"]
+CMD ["java", "-jar", "solo-leveling-notification.jar"]
