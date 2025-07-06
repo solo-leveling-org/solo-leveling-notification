@@ -11,3 +11,5 @@ logging:
     org.apache.kafka.clients.producer.ProducerConfig: WARN
     io.confluent.kafka.serializers.KafkaAvroDeserializerConfig: WARN
     io.confluent.kafka.serializers.KafkaAvroSerializerConfig: WARN
+server:
+  port: 8087
