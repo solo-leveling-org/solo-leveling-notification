@@ -27,6 +27,9 @@
 		<kotlin.code.style>official</kotlin.code.style>
 
 		<solo-leveling-avro.version>2.0.1</solo-leveling-avro.version>
+
+		<!-- tests -->
+		<test-containers.version>1.21.3</test-containers.version>
 	</properties>
 
 	<repositories>
