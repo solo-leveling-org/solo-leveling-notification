@@ -1,10 +1,8 @@
 package com.sleepkqq.sololeveling.notification
 
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
-class ApplicationTest {
+class ApplicationTest : BaseTestClass() {
 
 	@Test
 	fun contextLoads() {
