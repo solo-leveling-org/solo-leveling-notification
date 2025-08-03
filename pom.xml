@@ -26,7 +26,7 @@
 		<kotlin.version>2.2.0</kotlin.version>
 		<kotlin.code.style>official</kotlin.code.style>
 
-		<solo-leveling-avro.version>2.1.2</solo-leveling-avro.version>
+		<solo-leveling-avro.version>2.1.3</solo-leveling-avro.version>
 
 		<!-- tests -->
 		<test-containers.version>1.21.3</test-containers.version>
