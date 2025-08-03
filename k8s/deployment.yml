@@ -19,9 +19,6 @@ spec:
           image: $DOCKERHUB_USER/solo-leveling-notification:$GIT_COMMIT_SHA
           ports:
             - containerPort: 8080
-          env:
-            - name: SERVER_HOST
-              value: "${SERVER_HOST}"
           livenessProbe:
             httpGet:
               path: /actuator/health
