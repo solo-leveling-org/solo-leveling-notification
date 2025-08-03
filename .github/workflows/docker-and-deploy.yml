@@ -1,10 +1,10 @@
-name: Build, Push and Deploy to Kubernetes
+name: Docker build, Push and Deploy to Kubernetes
 
 on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  docker-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -79,7 +79,7 @@ jobs:
 
       - name: Wait for deployment rollout
         run: |
-          kubectl rollout status deployment/solo-leveling-notification --timeout=90s
+          kubectl rollout status deployment/solo-leveling-notification --timeout=120s
 
       - name: Clean up temporary files (security)
         run: |

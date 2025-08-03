@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component
 @Component
 class PriorityBasedRoutingStrategy : NotificationRoutingStrategy {
 
-	companion object {
-		private val LOW_PRIORITY_TASK_TOPICS = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
-		private val MEDIUM_PRIORITY_TASK_TOPICS = setOf(
+	private companion object {
+		val LOW_PRIORITY_TASK_TOPICS = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
+		val MEDIUM_PRIORITY_TASK_TOPICS = setOf(
 			KafkaTaskTopics.UI_NOTIFICATION_TOPIC,
 			KafkaTaskTopics.TG_NOTIFICATION_TOPIC
 		)

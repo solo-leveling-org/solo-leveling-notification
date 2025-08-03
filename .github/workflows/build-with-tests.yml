@@ -1,4 +1,4 @@
-name: "CodeQL Advanced"
+name: "Build project with tests"
 
 on:
   pull_request:
@@ -6,23 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  analyze:
-    name: Analyze (Java/Kotlin)
+  build:
+    name: Build project with tests
     runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      packages: read
-      actions: read
-      contents: read
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - language: actions
-            build-mode: none
-          - language: java-kotlin
-            build-mode: manual
 
     steps:
       - name: Checkout repository
@@ -51,26 +37,10 @@ jobs:
           java-version: '24'
           distribution: 'temurin'
 
-      - name: Set up Docker
-        uses: docker/setup-docker-action@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
-          build-mode: ${{ matrix.build-mode }}
-
-      - if: matrix.build-mode == 'manual'
-        name: Build project with Maven
+      - name: Build project with Maven
         run: |
           mvn clean install -s ./settings.xml
 
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:${{matrix.language}}"
-
       - name: Clean up temporary files (security)
-        if: matrix.language == 'java-kotlin'
         run: |
           rm -f settings.xml
