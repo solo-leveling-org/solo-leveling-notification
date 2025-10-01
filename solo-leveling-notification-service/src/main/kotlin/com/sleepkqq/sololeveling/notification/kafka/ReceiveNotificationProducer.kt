@@ -21,6 +21,6 @@ class ReceiveNotificationProducer(
 
 	private fun sendToTopic(topic: String, event: ReceiveNotificationEvent) {
 		kafkaTemplate.send(topic, event)
-		log.info(">> {} sent | transactionId={}", topic, event.transactionId)
+		log.info(">> Notification sent to {} | transactionId={}", topic, event.transactionId)
 	}
 }

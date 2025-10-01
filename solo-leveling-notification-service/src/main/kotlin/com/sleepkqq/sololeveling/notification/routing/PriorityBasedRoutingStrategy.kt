@@ -4,21 +4,16 @@ import com.sleepkqq.sololeveling.avro.constants.KafkaTaskTopics
 import com.sleepkqq.sololeveling.avro.notification.NotificationPriority
 import org.springframework.stereotype.Component
 
+@Suppress("unused")
 @Component
 class PriorityBasedRoutingStrategy : NotificationRoutingStrategy {
 
-	private companion object {
-		val LOW_PRIORITY_TASK_TOPICS = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
-		val MEDIUM_PRIORITY_TASK_TOPICS = setOf(
-			KafkaTaskTopics.UI_NOTIFICATION_TOPIC,
-			KafkaTaskTopics.TG_NOTIFICATION_TOPIC
-		)
-	}
-
-	override fun getTopics(priority: NotificationPriority): Set<String> {
-		return when (priority) {
-			NotificationPriority.LOW -> LOW_PRIORITY_TASK_TOPICS
-			NotificationPriority.MEDIUM, NotificationPriority.HIGH -> MEDIUM_PRIORITY_TASK_TOPICS
+	override fun getTopics(priority: NotificationPriority): Set<String> =
+		when (priority) {
+			NotificationPriority.LOW -> setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
+			NotificationPriority.MEDIUM, NotificationPriority.HIGH -> setOf(
+				KafkaTaskTopics.UI_NOTIFICATION_TOPIC,
+				KafkaTaskTopics.TG_NOTIFICATION_TOPIC
+			)
 		}
-	}
 }
