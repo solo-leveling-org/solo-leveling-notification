@@ -51,6 +51,13 @@
       <version>${solo-leveling-avro.version}</version>
     </dependency>
 
+    <!-- mapstruct -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstruct.version}</version>
+    </dependency>
+
     <!-- tests -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -97,6 +104,21 @@
             <goals>
               <goal>test-compile</goal>
             </goals>
+          </execution>
+          <execution>
+            <id>kapt</id>
+            <goals>
+              <goal>kapt</goal>
+            </goals>
+            <configuration>
+              <annotationProcessorPaths>
+                <annotationProcessorPath>
+                  <groupId>org.mapstruct</groupId>
+                  <artifactId>mapstruct-processor</artifactId>
+                  <version>${mapstruct.version}</version>
+                </annotationProcessorPath>
+              </annotationProcessorPaths>
+            </configuration>
           </execution>
         </executions>
         <configuration>

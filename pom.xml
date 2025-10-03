@@ -26,7 +26,11 @@
 		<kotlin.version>2.2.0</kotlin.version>
 		<kotlin.code.style>official</kotlin.code.style>
 
+		<!-- solo leveling -->
 		<solo-leveling-avro.version>2.2.0</solo-leveling-avro.version>
+
+		<!-- mapstruct -->
+		<mapstruct.version>1.6.3</mapstruct.version>
 
 		<!-- tests -->
 		<test-containers.version>1.21.3</test-containers.version>
