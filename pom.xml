@@ -27,7 +27,7 @@
 		<kotlin.code.style>official</kotlin.code.style>
 
 		<!-- solo leveling -->
-		<solo-leveling-avro.version>2.3.0</solo-leveling-avro.version>
+		<solo-leveling-avro.version>2.4.0</solo-leveling-avro.version>
 
 		<!-- mapstruct -->
 		<mapstruct.version>1.6.3</mapstruct.version>
