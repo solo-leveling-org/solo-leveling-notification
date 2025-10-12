@@ -6,6 +6,7 @@ import com.sleepkqq.sololeveling.avro.notification.SendNotificationEvent
 import com.sleepkqq.sololeveling.notification.mapper.AvroMapper
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
+import org.springframework.kafka.support.Acknowledgment
 import org.springframework.stereotype.Service
 
 @Suppress("unused")
@@ -15,15 +16,17 @@ class SendNotificationConsumer(
 	private val avroMapper: AvroMapper
 ) {
 
-	private val log = LoggerFactory.getLogger(SendNotificationConsumer::class.java)
+	private val log = LoggerFactory.getLogger(javaClass)
 
 	@KafkaListener(
 		topics = [KafkaTaskTopics.SEND_NOTIFICATION_TOPIC],
 		groupId = KafkaGroupIds.NOTIFICATION_GROUP_ID
 	)
-	fun listen(event: SendNotificationEvent) {
+	fun listen(event: SendNotificationEvent, ack: Acknowledgment) {
 		log.info("<< Start sending notification | transactionId={}", event.transactionId)
 		val receiveNotificationEvent = avroMapper.map(event)
 		receiveNotificationProducer.send(event.priority, receiveNotificationEvent)
+
+		ack.acknowledge()
 	}
 }
