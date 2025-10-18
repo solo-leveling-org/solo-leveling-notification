@@ -35,12 +35,4 @@
 		<!-- tests -->
 		<test-containers.version>1.21.3</test-containers.version>
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/solo-leveling-org/solo-leveling-avro</url>
-		</repository>
-	</repositories>
 </project>
