@@ -23,7 +23,7 @@ class SendNotificationConsumer(
 		groupId = KafkaGroupIds.NOTIFICATION_GROUP_ID
 	)
 	fun listen(event: SendNotificationEvent, ack: Acknowledgment) {
-		log.info("<< Start sending notification | transactionId={}", event.transactionId)
+		log.info("<< Start sending notification | txId={}", event.txId)
 		val receiveNotificationEvent = avroMapper.map(event)
 		receiveNotificationProducer.send(event.priority, receiveNotificationEvent)
 
