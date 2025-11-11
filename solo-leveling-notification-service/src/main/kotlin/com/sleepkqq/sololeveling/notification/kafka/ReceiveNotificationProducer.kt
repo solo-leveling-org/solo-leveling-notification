@@ -22,9 +22,9 @@ class ReceiveNotificationProducer(
 	private fun sendToTopic(topic: String, event: ReceiveNotificationEvent) {
 		kafkaTemplate.send(topic, event).whenComplete { _, ex ->
 			if (ex == null) {
-				log.info(">> Notification sent to {} | txId={}", topic, event.txId)
+				log.info("<< Notification sent to {} | txId={}", topic, event.txId)
 			} else {
-				log.error("<< Failed to send notification to {} | txId={}", topic, event.txId, ex)
+				log.error("Failed to send notification to {} | txId={}", topic, event.txId, ex)
 			}
 		}
 	}
