@@ -24,7 +24,7 @@ class SendNotificationConsumer(
 	@Transactional
 	@RetryableTopic
 	@KafkaListener(
-		topics = [KafkaTaskTopics.UI_NOTIFICATION_TOPIC],
+		topics = [KafkaTaskTopics.SEND_NOTIFICATION_TOPIC],
 		groupId = $$"${spring.kafka.avro.group-id}"
 	)
 	fun listen(event: SendNotificationEvent) {
