@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.9.10-amazoncorretto-24-alpine AS build
+FROM maven:3.9.10-amazoncorretto-25-alpine AS build
 
 # Создаём пользователя для безопасности
 RUN adduser -D myuser && \
@@ -16,7 +16,7 @@ COPY --chown=myuser:myuser . .
 RUN mvn clean package -DskipTests --settings settings.xml
 
 # Run stage
-FROM amazoncorretto:24-alpine3.21-jdk
+FROM amazoncorretto:25-alpine3.21-jdk
 
 # Копируем собранный JAR и frontend
 COPY --from=build /usr/src/app/solo-leveling-notification-service/target/*.jar /app/solo-leveling-notification.jar
