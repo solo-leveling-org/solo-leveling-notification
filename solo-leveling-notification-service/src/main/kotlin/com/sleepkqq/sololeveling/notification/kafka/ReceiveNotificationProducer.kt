@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class ReceiveNotificationProducer(
-	private val kafkaTemplate: KafkaTemplate<String, ReceiveNotificationEvent>,
+	private val kafkaTemplate: KafkaTemplate<String, Any>,
 	private val routingStrategy: NotificationRoutingStrategy
 ) {
 
-	private val log = LoggerFactory.getLogger(ReceiveNotificationProducer::class.java)
+	private val log = LoggerFactory.getLogger(javaClass)
 
 	fun send(priority: NotificationPriority, event: ReceiveNotificationEvent) =
 		routingStrategy.getTopics(priority)
@@ -21,6 +21,12 @@ class ReceiveNotificationProducer(
 
 	private fun sendToTopic(topic: String, event: ReceiveNotificationEvent) {
 		kafkaTemplate.send(topic, event)
-		log.info(">> Notification sent to {} | transactionId={}", topic, event.transactionId)
+			.whenComplete { _, e ->
+			if (e == null) {
+				log.info("<< Notification sent to {} | txId={}", topic, event.txId)
+			} else {
+				log.error("Failed to send notification to {} | txId={}", topic, event.txId, e)
+			}
+		}
 	}
 }
