@@ -14,6 +14,9 @@ spring:
       lettuce:
         pool:
           max-active: 8
+  threads:
+    virtual:
+      enabled: true
 logging:
   level:
     org.apache.kafka.clients.consumer.ConsumerConfig: WARN
