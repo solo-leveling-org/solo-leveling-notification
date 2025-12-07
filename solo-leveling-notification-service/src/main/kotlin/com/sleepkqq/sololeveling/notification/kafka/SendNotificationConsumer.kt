@@ -34,7 +34,6 @@ class SendNotificationConsumer(
 	override fun getTxId(event: SendNotificationEvent): String = event.txId
 
 	override fun processEvent(event: SendNotificationEvent) {
-		log.info("<< Start sending notification | txId={}", event.txId)
 		val receiveNotificationEvent = avroMapper.map(event)
 		receiveNotificationProducer.send(event.priority, receiveNotificationEvent)
 	}
