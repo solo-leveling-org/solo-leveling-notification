@@ -11,7 +11,7 @@
 
 	<groupId>com.soloist</groupId>
 	<artifactId>soloist-notification</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.0</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -27,7 +27,7 @@
 		<kotlin.code.style>official</kotlin.code.style>
 
 		<!-- soloist -->
-		<soloist-lib.version>2.0.0</soloist-lib.version>
+		<soloist-lib.version>2.0.1</soloist-lib.version>
 
 		<!-- mapstruct -->
 		<mapstruct.version>1.6.3</mapstruct.version>
