@@ -1,4 +1,4 @@
-package com.sleepkqq.sololeveling.notification
+package com.soloist.notification
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,12 +1,12 @@
-package com.sleepkqq.sololeveling.notification.kafka.consumer
+package com.soloist.notification.kafka.consumer
 
-import com.sleepkqq.sololeveling.avro.config.consumer.AbstractKafkaConsumer
-import com.sleepkqq.sololeveling.avro.constants.KafkaTaskTopics
-import com.sleepkqq.sololeveling.avro.idempotency.IdempotencyService
-import com.sleepkqq.sololeveling.avro.notification.NotificationSource
-import com.sleepkqq.sololeveling.avro.task.TasksSavedEvent
-import com.sleepkqq.sololeveling.notification.kafka.producer.NotificationProducer
-import com.sleepkqq.sololeveling.notification.service.i18n.I18nService
+import com.soloist.avro.config.consumer.AbstractKafkaConsumer
+import com.soloist.avro.constants.KafkaTaskTopics
+import com.soloist.avro.idempotency.IdempotencyService
+import com.soloist.avro.notification.NotificationSource
+import com.soloist.avro.task.TasksSavedEvent
+import com.soloist.notification.kafka.producer.NotificationProducer
+import com.soloist.notification.service.i18n.I18nService
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.annotation.RetryableTopic

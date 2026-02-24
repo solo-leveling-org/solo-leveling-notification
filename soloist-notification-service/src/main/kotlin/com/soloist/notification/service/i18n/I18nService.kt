@@ -1,4 +1,4 @@
-package com.sleepkqq.sololeveling.notification.service.i18n
+package com.soloist.notification.service.i18n
 
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder

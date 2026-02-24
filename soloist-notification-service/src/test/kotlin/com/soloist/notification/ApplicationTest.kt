@@ -1,4 +1,4 @@
-package com.sleepkqq.sololeveling.notification
+package com.soloist.notification
 
 import org.junit.jupiter.api.Test
 

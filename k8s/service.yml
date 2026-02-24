@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: solo-leveling-notification
+  name: soloist-notification
 spec:
   selector:
-    app: solo-leveling-notification
+    app: soloist-notification
   ports:
     - protocol: TCP
       port: 80
