@@ -1,9 +1,9 @@
-package com.sleepkqq.sololeveling.notification.kafka.producer
+package com.soloist.notification.kafka.producer
 
-import com.sleepkqq.sololeveling.avro.notification.Notification
-import com.sleepkqq.sololeveling.avro.notification.NotificationEvent
-import com.sleepkqq.sololeveling.avro.notification.NotificationSource
-import com.sleepkqq.sololeveling.avro.notification.NotificationType
+import com.soloist.avro.notification.Notification
+import com.soloist.avro.notification.NotificationEvent
+import com.soloist.avro.notification.NotificationSource
+import com.soloist.avro.notification.NotificationType
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import java.util.*

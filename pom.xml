@@ -9,13 +9,13 @@
 		<version>4.0.2</version>
 	</parent>
 
-	<groupId>com.sleepkqq</groupId>
-	<artifactId>solo-leveling-notification</artifactId>
+	<groupId>com.soloist</groupId>
+	<artifactId>soloist-notification</artifactId>
 	<version>2.0.0</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>solo-leveling-notification-service</module>
+		<module>soloist-notification-service</module>
 	</modules>
 
 	<properties>
@@ -26,8 +26,8 @@
     <kotlin.version>2.3.10</kotlin.version>
 		<kotlin.code.style>official</kotlin.code.style>
 
-		<!-- solo leveling -->
-		<solo-leveling-lib.version>1.6.5</solo-leveling-lib.version>
+		<!-- soloist -->
+		<soloist-lib.version>2.0.1</soloist-lib.version>
 
 		<!-- mapstruct -->
 		<mapstruct.version>1.6.3</mapstruct.version>

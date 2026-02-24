@@ -1,4 +1,4 @@
-package com.sleepkqq.sololeveling.notification
+package com.soloist.notification
 
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

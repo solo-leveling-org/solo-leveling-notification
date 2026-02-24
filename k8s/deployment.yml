@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: solo-leveling-notification
+  name: soloist-notification
 spec:
   replicas: ${REPLICAS}
   selector:
     matchLabels:
-      app: solo-leveling-notification
+      app: soloist-notification
   template:
     metadata:
       labels:
-        app: solo-leveling-notification
+        app: soloist-notification
       annotations:
         commit.sha: "${GIT_COMMIT_SHA}"
         prometheus.io/scrape: "true"
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: $DOCKERHUB_USER/solo-leveling-notification:$GIT_COMMIT_SHA
+          image: $DEPLOY_IMAGE
           ports:
             - containerPort: 8080
           livenessProbe:
