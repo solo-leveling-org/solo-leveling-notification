@@ -37,7 +37,7 @@ class LocaleUpdatedConsumer(
 			txId = UUID.fromString(event.txId),
 			userId = event.userId,
 			source = NotificationSource.LOCALE,
-			topics = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC, KafkaTaskTopics.TG_NOTIFICATION_TOPIC),
+			topics = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
 		)
 	}
 }

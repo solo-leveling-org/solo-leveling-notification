@@ -41,7 +41,7 @@ class DayStreakExtendedConsumer(
 			userId = event.userId,
 			message = i18nService.getMessage(LocalizationCode.DAY_STREAK_EXTENDED_INFO),
 			source = NotificationSource.DAY_STREAK,
-			topics = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC),
+			topics = setOf(KafkaTaskTopics.UI_NOTIFICATION_TOPIC)
 		)
 	}
 }
